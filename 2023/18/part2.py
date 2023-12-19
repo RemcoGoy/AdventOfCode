@@ -55,7 +55,7 @@ im = Image.new(mode="RGB", size=(width + 1, height + 1), color=(0, 0, 0))
 for x, y in zip(x_coordinates, y_coordinates):
     im.putpixel(xy=(x, y), value=(255, 255, 255))
 
-ImageDraw.floodfill(im, (1, 1), value=(255, 255, 255))
+# ImageDraw.floodfill(im, (1, 1), value=(255, 255, 255))
 # ImageDraw.floodfill(im, (10, height), value=(255, 255, 255))
 # ImageDraw.floodfill(im, (200, height), value=(255, 255, 255))
 im.save("test.png")
