@@ -131,3 +131,4 @@ dmypy.json
 **/.dccache
 
 **/input.txt
+**/*.exe
