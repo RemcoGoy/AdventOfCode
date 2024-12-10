@@ -6,15 +6,18 @@ lines = input_file.read().split("\n")
 
 input_file.close()
 
+
 def p_to_xy(dir):
     return int(dir.real), int(dir.imag)
+
 
 def pretty_print(grid: np.array):
     for row in grid:
         for cell in row:
             print(cell, end="")
-        
+
         print("\n", end="")
+
 
 P = complex
 
@@ -38,23 +41,23 @@ anti_nodes = set()
 for k, v in antennas.items():
     print(f"Checking {k}")
     for i in range(len(v)):
-        for j in range(i+1, len(v)):
+        for j in range(i + 1, len(v)):
             print(v[i], v[j])
             diff_1 = v[i] - v[j]
             anti_1 = v[i] + diff_1
             x, y = p_to_xy(anti_1)
-            if not (x < 0 or x > width-1 or y < 0 or y > height-1):
+            if not (x < 0 or x > width - 1 or y < 0 or y > height - 1):
                 anti_nodes.add(anti_1)
                 grid[y][x] = "#"
 
             diff_2 = v[j] - v[i]
             anti_2 = v[j] + diff_2
             x, y = p_to_xy(anti_2)
-            if not (x < 0 or x > width-1 or y < 0 or y > height-1):
+            if not (x < 0 or x > width - 1 or y < 0 or y > height - 1):
                 anti_nodes.add(anti_2)
                 grid[y][x] = "#"
-    
-    print("-"*20)
+
+    print("-" * 20)
 
 # pretty_print(grid)
 print(len(anti_nodes))
